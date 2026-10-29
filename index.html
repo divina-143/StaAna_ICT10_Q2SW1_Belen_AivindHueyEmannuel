@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Friends - Club Verification | ICT 10 Seatwork #1</title>
+    
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.11.2/core.css">
+    <script type="module" src="https://pyscript.net/releases/2025.11.2/core.js"></script>
+    
+    <style>
+        body {
+            background-image: url(https://cdn.sanity.io/images/ki5mwjf3/production/3e681f0e3b15d280c79d4e5801b59370626b861c-1920x1070.png);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #0F1923; /* Fallback dark */
+            color: #FFFFFF;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+        
+        .overlay {
+            background: rgba(15, 25, 35, 0.85);
+            min-height: 100vh;
+            padding: 30px 15px;
+        }
+        
+        .champions-card {
+            background: rgba(15, 25, 35, 0.95);
+            border: 2px solid #FF4655;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 70, 85, 0.4);
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .champions-title {
+            color: #FFD700;
+            text-shadow: 2px 2px 4px #FF4655;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .btn-champions {
+            background-color: #FF4655;
+            border-color: #FF4655;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn-champions:hover {
+            background-color: #FFD700;
+            border-color: #FFD700;
+            color: #0F1923;
+            transform: scale(1.05);
+        }
+        
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid #FF4655;
+            color: white;
+        }
+        
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: #FFD700;
+            color: white;
+            box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+        }
+        
+        .form-control::placeholder {
+            color: #aaa;
+        }
+        
+        .members-list {
+            background: rgba(255, 70, 85, 0.15);
+            border-left: 4px solid #FFD700;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        
+        .header-logo {
+            font-size: 1.2em;
+            color: #FF4655;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="container">
+          
+            <div class="text-center mb-4">
+                <h1 class="champions-title display-4">VALORANT SQUAD</h1>
+                <h2 class="text-white">Are u part of the bunch of Valorant friends</h2>
+                <p class="header-logo">ICT 10 Seatwork #1 | Professional High School</p>
+                <p class="text-warning">Theme: Friend Group Verification System</p>
+            </div>
+            
+            
+            <div class="champions-card">
+                <h3 class="text-danger mb-3">Verify Friend Name</h3>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <input type="text" id="first_name" class="form-control" placeholder="First Name">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" id="last_name" class="form-control" placeholder="Last Name">
+                    </div>
+                    <div class="col-12 text-center mt-4">
+                        <button id="enter-btn" class="btn btn-champions btn-lg px-5">
+                            ENTER
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+          
+            <div class="champions-card">
+                <div id="result" class="members-list text-center">
+                    <span class="text-muted">Enter your name above to check if you are in the bunch.</span>
+                </div>
+            </div>
+            
+          
+            <div class="text-center mt-4 text-light">
+            
+            </div>
+        </div>
+    </div>
+    
+    <!-- Python Verification Code with PyScript -->
+    <script type="py">
+        from pyscript import document, when
+
+        @when("click", "#enter-btn")
+        def candidate_checker(e):
+            club_members = [
+                "shawn tee", "eeeh tannnz", "kuh eye reen", 
+                "zow fia kabig", "cler multo", "nzo.gpt", "silly vieya",
+                "sophi ghey", "kehn jee", "xey uh riene", "ey vuhnd"
+            ]
+
+            f_name = document.getElementById('first_name').value
+            l_name = document.getElementById('last_name').value
+            candidate = f_name + ' ' + l_name
+            member_checker = candidate.lower() in club_members
+
+            messages = (
+                f'lol {candidate} is a chud', 
+                f'yay u are a bunch'
+            )
+            document.getElementById('result').innerHTML = messages[member_checker]
+    </script>
+</body>
+</html>
